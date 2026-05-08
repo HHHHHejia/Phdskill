@@ -1,0 +1,12 @@
+target_venue: null
+deadline: null
+compute_budget: null
+api_budget: null
+external_api_allowed: false
+sensitive_data_allowed: false
+collaboration_constraints: null
+ethics_constraints: null
+preferred_writing_style: null
+preferred_paper_type: null
+risk_tolerance: null
+notes: null
