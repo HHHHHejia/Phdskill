@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "project.yaml",
+  "type": "object",
+  "required": [
+    "project",
+    "current_stage",
+    "stage_status",
+    "gates",
+    "permissions",
+    "evidence_policy",
+    "budget",
+    "human_preferences"
+  ],
+  "properties": {
+    "project": {
+      "type": "object",
+      "properties": {
+        "title": {"type": ["string", "null"]},
+        "field": {"type": ["string", "null"]},
+        "target_venue": {"type": ["string", "null"]},
+        "paper_type": {"type": ["string", "null"]}
+      }
+    },
+    "current_stage": {"type": "integer", "minimum": 0, "maximum": 8},
+    "stage_status": {
+      "type": "object",
+      "properties": {
+        "inbox": {"type": "string"},
+        "intake": {"type": "string"},
+        "literature": {"type": "string"},
+        "experiment_plan": {"type": "string"},
+        "execution": {"type": "string"},
+        "analysis": {"type": "string"},
+        "figures": {"type": "string"},
+        "writing": {"type": "string"},
+        "review": {"type": "string"}
+      }
+    },
+    "gates": {
+      "type": "object",
+      "properties": {
+        "research_direction": {"type": "object"},
+        "refined_idea": {"type": "object"},
+        "experiment_plan": {"type": "object"},
+        "claims": {"type": "object"},
+        "final_submission": {"type": "object"}
+      }
+    },
+    "permissions": {"type": "object"},
+    "evidence_policy": {"type": "object"},
+    "budget": {"type": "object"},
+    "human_preferences": {"type": "object"},
+    "open_questions": {"type": "array"},
+    "decisions": {"type": "array"},
+    "risks": {"type": "array"}
+  }
+}
