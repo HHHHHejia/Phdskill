@@ -1,6 +1,6 @@
 {
   "name": "@scienceintelligence/phd",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Create a complete PhD-style paper project git repository from a research idea. Supports Claude Code and Codex.",
   "keywords": [
     "claude-code",
