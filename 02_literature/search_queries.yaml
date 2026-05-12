@@ -1,6 +1,0 @@
-queries:
-  - id: q001
-    query: null
-    source: null
-    rationale: null
-    expected_paper_count: null

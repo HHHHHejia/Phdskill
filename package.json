@@ -1,0 +1,41 @@
+{
+  "name": "@scienceintelligence/phd",
+  "version": "0.1.0",
+  "description": "Create a complete PhD-style paper project git repository from a research idea. Supports Claude Code and Codex.",
+  "keywords": [
+    "claude-code",
+    "codex",
+    "phd",
+    "research",
+    "paper-writing",
+    "scientific-research"
+  ],
+  "author": "ResearchSkills Contributors",
+  "license": "CC-BY-4.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HHHHHejia/Phdskill.git"
+  },
+  "bugs": {
+    "url": "https://github.com/HHHHHejia/Phdskill/issues"
+  },
+  "homepage": "https://github.com/HHHHHejia/Phdskill#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "validate": "node scripts/validate-package.js",
+    "prepack": "npm run validate",
+    "postinstall": "node scripts/postinstall.js",
+    "postuninstall": "node scripts/postuninstall.js"
+  },
+  "files": [
+    "commands/",
+    "guides/",
+    "scripts/",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
