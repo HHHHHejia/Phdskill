@@ -24,8 +24,27 @@ write experiment plans, run code, analyze results, or draft paper sections.
 - User constraints: target venue, deadline, compute/API budget, data/privacy
   limits, collaboration constraints, preferred paper type, and output path.
 
+## Blank-Start Preflight
+
+If there is no existing resumable `research_project/` and the user provided no
+rough research idea, constraints, or output path beyond the command name itself,
+do not create anything. Do not make directories, initialize git, write
+`README.md`, write `.gitignore`, or create `00_project_setup.md`.
+
+Ask the user for enough intent to begin:
+
+- the rough research idea or topic
+- whether to create `research_project/` in the current location
+- any critical constraints such as venue, deadline, budget, data/privacy, or
+  collaboration requirements
+
+This preflight is separate from the required 10 Step 0 setup questions. After
+the user provides a rough idea or explicitly asks for a blank scaffold, continue
+with the normal Step 0 actions.
+
 ## Actions
 
+0. Run the blank-start preflight above before any filesystem writes.
 1. Decide the output project root.
    - If the current directory already is a valid `research_project/` repo, use
      it.
@@ -33,8 +52,9 @@ write experiment plans, run code, analyze results, or draft paper sections.
      directory.
    - If the user provided a parent path, create or use
      `<parent>/research_project/`.
-   - If no path is provided, choose a sensible parent path and create
-     `research_project/` there.
+   - If no path is provided but the user did provide a research idea or
+     explicitly approved a blank scaffold, choose a sensible parent path and
+     create `research_project/` there.
    - Ask before creating files if the location is ambiguous or risky.
 2. Create the `research_project/` directory.
 3. Initialize git in `research_project/` if needed.

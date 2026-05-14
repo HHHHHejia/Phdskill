@@ -33,6 +33,10 @@ Use progressive disclosure: load the command body first, then only the guide
 needed for the current task. Do not read every guide or bundled script at skill
 load time.
 
+If `$phd` or `/phd` is invoked with no research idea and no existing resumable
+`research_project/`, the agent must ask for the user's topic and creation
+intent before creating any folders, git repo, README logs, or Markdown files.
+
 0. `guides/00-project.md` - create `research_project/`, initialize git there,
    create the step folders, and initialize append-only README logs
 1. `guides/01-idea.md` - run preliminary Deep Research, assess feasibility,

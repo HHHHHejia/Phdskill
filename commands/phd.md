@@ -21,6 +21,16 @@ numbered workflow folders. If the current directory is already the target
 path, create `research_project/`, initialize git there, and create the project
 structure. Do not create the paper project inside this skill repository.
 
+Blank-start preflight is mandatory. If the user invokes the command with no
+research idea, no constraints, no output path, and there is no existing
+resumable `research_project/` with a root README or `00_project_setup.md`, stop
+before creating any directory, git repository, README, Markdown file, or log.
+The command name itself (`Phd`, `$phd`, or `/phd`) is not research input. Ask the
+user for the rough research idea and whether they want to create
+`research_project/` in the current location. This preflight does not count as
+the formal 10-question Step 0 checkpoint. Continue Step 0 only after the user
+provides enough intent to create or resume a project.
+
 After Step 0, each step edits only its corresponding output folder plus any
 explicit paper-draft side effect named in that step guide. It reads only earlier
 step folders unless the user explicitly approves a revision.
