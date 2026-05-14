@@ -52,10 +52,33 @@ Human-in-the-loop checkpoints are required for every formal stage Markdown file:
   `Post-Write Calibration Questions`.
 - Do not advance to the next step until the user has had a chance to respond.
 
-Load only the guide needed for the current step. In Codex, guides and helper
-scripts are installed under `~/.codex/skills/phd/`. In Claude Code, guides are
-installed under `~/.claude/commands/phd-guides/` and helper scripts under
+Use progressive disclosure. The skill body is only the routing layer: identify
+the active step, then load only that step's guide and only the helper script you
+actually need to run or debug. Do not read all guides or all bundled scripts at
+skill-load time. In Codex, guides and helper scripts are installed under
+`~/.codex/skills/phd/`. In Claude Code, guides are installed under
+`~/.claude/commands/phd-guides/` and helper scripts under
 `~/.claude/commands/phd-scripts/`.
+
+## Progressive Disclosure
+
+On each invocation:
+
+1. Read this command file first to identify the project root, continuity state,
+   and active workflow step.
+2. Read the root and numbered-folder README logs required by the continuity
+   protocol.
+3. Load exactly one current-step guide from `guides/`, unless the user
+   explicitly asks for cross-step redesign or review.
+4. Read earlier formal stage Markdown files only when the current guide lists
+   them as inputs. Prefer README logs first to decide which heavy artifacts are
+   worth reopening.
+5. Open bundled helper scripts only when the current step calls for running,
+   debugging, or modifying that script. Prefer `--help` and targeted `rg`/`sed`
+   reads over loading whole scripts when possible.
+6. Do not pre-read future-step guides, all PDFs, all raw tool outputs, all run
+   folders, or the whole experiment code tree. Load them lazily when a specific
+   decision or artifact path requires it.
 
 | Step | Output folder | Guide | Main deliverable |
 |---|---|---|---|
@@ -64,7 +87,7 @@ installed under `~/.claude/commands/phd-guides/` and helper scripts under
 | 2 | `02_knowledge_base/` | `guides/02-knowledge-base.md` | `knowledge_base.md` + `relatedwork.tex` |
 | 3 | `03_method/` | `guides/03-method.md` | `method.md` + `method.tex` |
 | 4 | `04_experiment_plan/` | `guides/04-experiment-plan.md` | `experiment_plan.md` + `experiments.tex` |
-| 5 | `05_experiment_code/` | `guides/05-experiment-code.md` | code repo + `implementation.md` + `experiments.tex` |
+| 5 | `05_experiment_code/` | `guides/05-experiment-code.md` | code tree + `implementation.md` + `experiments.tex` |
 | 6 | `06_analysis/` | `guides/06-analysis.md` | `analysis.md` + `results.tex` |
 | 7 | `07_paper_latex/` | `guides/07-writing.md` | `writing.md` + `main.tex` + polished sections |
 | 8 | `08_review/` | `guides/08-review.md` | `审稿意见.md` |

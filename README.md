@@ -29,7 +29,9 @@ Invoke the same workflow as:
 - Codex: `$phd`
 - Claude Code: `/phd`
 
-Use only the guide needed for the current task:
+Use progressive disclosure: load the command body first, then only the guide
+needed for the current task. Do not read every guide or bundled script at skill
+load time.
 
 0. `guides/00-project.md` - create `research_project/`, initialize git there,
    create the step folders, and initialize append-only README logs
