@@ -59,13 +59,8 @@ figures, tables, build status, and unresolved paper TODOs.
    present.
 6. Create or update bibliography files from sources already recorded in the
    project. Do not invent citation keys or bibliographic metadata.
-7. Polish the narrative:
-   - sharpen the problem statement
-   - align contributions with actual evidence
-   - connect related work to the method
-   - make the experiment setup readable
-   - present results without overclaiming
-   - state limitations honestly
+7. Write and revise the LaTeX paper with the four-pass writing protocol below.
+   Do the passes in order and record the outcome of each pass in `writing.md`.
 8. Ensure every major claim is traceable to literature, analysis, result
    artifacts, human assumptions, or an explicit TODO label.
 9. Add or repair figure/table includes only for artifacts that exist under
@@ -81,6 +76,36 @@ figures, tables, build status, and unresolved paper TODOs.
     and the root `README.md`, then commit and push according to the git protocol
     in `commands/phd.md`.
 14. Ask the user those exact 10 calibration questions before moving to Step 8.
+
+## Four-Pass Writing Protocol
+
+Use this protocol for every substantial LaTeX writing or revision task:
+
+1. Fix the logical structure.
+   - Decide the paper-level argument before polishing sentences.
+   - Make section order, subsection order, figure/table placement, and claim
+     dependencies explicit.
+   - Ensure each section has one job and hands off cleanly to the next section.
+   - Remove or mark paragraphs that do not support the central argument.
+2. Draft the content.
+   - Fill each section with evidence-grounded content using the existing stage
+     files, figures, tables, and bibliography.
+   - Keep claims provisional when evidence is incomplete.
+   - Use `% TODO:` comments for missing citations, missing results, unclear
+     notation, unresolved venue requirements, or decisions needing the user.
+3. Increase information density.
+   - Replace vague motivation, generic background, and filler transitions with
+     concrete claims, mechanisms, comparisons, numbers, or evidence paths.
+   - Merge repetitive paragraphs and move low-value detail to appendix-style
+     material only when appropriate.
+   - Make every sentence either establish context, state a claim, support a
+     claim, explain the method, report evidence, qualify uncertainty, or guide
+     the reader through the argument.
+4. Polish grammar and style.
+   - Improve clarity, grammar, transitions, terminology consistency, and
+     LaTeX readability without changing the scientific meaning.
+   - Preserve citations, claim strength, evidence labels, and TODOs.
+   - Do not make the prose sound more certain than the evidence allows.
 
 ## Output
 
@@ -100,6 +125,8 @@ Use this structure:
 ## Human Pre-Write Clarifications
 
 ## Paper Structure
+
+## Four-Pass Writing Log
 
 ## LaTeX Project Layout
 

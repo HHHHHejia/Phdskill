@@ -47,8 +47,8 @@ intent before creating any folders, git repo, README logs, or Markdown files.
 4. `guides/04-experiment-plan.md` - refine the experiment plan
 5. `guides/05-experiment-code.md` - create the runnable experiment-code tree
 6. `guides/06-analysis.md` - analyze experimental data and claim support
-7. `guides/07-writing.md` - write and refine the LaTeX paper, including
-   `main.tex`
+7. `guides/07-writing.md` - write and refine the LaTeX paper with the four-pass
+   structure/content/density/grammar protocol, including `main.tex`
 8. `guides/08-review.md` - write expert reviewer criticism in `审稿意见.md`
 
 Each research step keeps formal outputs small. Raw Deep Research outputs,
