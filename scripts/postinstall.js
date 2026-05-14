@@ -8,7 +8,7 @@ const os = require("os");
 const ROOT = path.join(__dirname, "..");
 const COMMAND = path.join(ROOT, "commands", "phd.md");
 const GUIDES = path.join(ROOT, "guides");
-const TOOL_SCRIPTS = ["deep-research-idea.js", "download-papers.js"];
+const TOOL_SCRIPTS = ["deep-research-idea.js", "run-deep-research-tmux.js", "download-papers.js"];
 
 function rmrf(target) {
   if (!fs.existsSync(target)) return;

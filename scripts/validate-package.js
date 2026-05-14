@@ -21,6 +21,7 @@ const requiredFiles = [
   "guides/07-writing.md",
   "guides/08-review.md",
   "scripts/deep-research-idea.js",
+  "scripts/run-deep-research-tmux.js",
   "scripts/download-papers.js",
   "scripts/postinstall.js",
   "scripts/postuninstall.js",

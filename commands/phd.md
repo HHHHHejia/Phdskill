@@ -90,6 +90,16 @@ On each invocation:
    folders, or the whole experiment code tree. Load them lazily when a specific
    decision or artifact path requires it.
 
+## Deep Research Execution
+
+All Deep Research runs must be started through
+`scripts/run-deep-research-tmux.js`, which launches `deep-research-idea.js` in a
+detached tmux session and returns immediately. Do not run Deep Research in the
+foreground. Record the tmux session name, metadata file, log file, and status
+file in the relevant folder README so a future run can resume monitoring. If
+tmux is unavailable or the session cannot start, write a tool failure note and
+ask the user how to proceed instead of blocking the foreground process.
+
 | Step | Output folder | Guide | Main deliverable |
 |---|---|---|---|
 | 0 | repo root | `guides/00-project.md` | `00_project_setup.md` + project structure |

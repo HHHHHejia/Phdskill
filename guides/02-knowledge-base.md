@@ -39,16 +39,23 @@ README, and use the logs to reuse prior survey outputs, downloaded papers,
 metadata, taxonomy folders, and unfinished download batches instead of
 rediscovering them.
 
-1. Run the Deep Research helper in knowledge-base mode:
+1. Start the Deep Research helper in knowledge-base mode in a detached tmux
+   session:
 
    ```bash
-   node <path-to-phd-skill>/scripts/deep-research-idea.js \
+   node <path-to-phd-skill>/scripts/run-deep-research-tmux.js \
      --mode knowledge-base \
      --project-root <output-repo>
    ```
 
-2. Read `02_knowledge_base/tool_outputs/deep_research_survey.md`,
-   `taxonomy.json`, and `papers_to_download.json`.
+   Do not run `deep-research-idea.js` directly in the foreground. The tmux
+   wrapper returns immediately and writes session metadata, logs, and completion
+   status under `02_knowledge_base/tool_outputs/`.
+2. Record the tmux session name and log path in `02_knowledge_base/README.md`.
+   Check progress with `tmux capture-pane -pt <session>` or the log file. After
+   the tmux job finishes successfully, read
+   `02_knowledge_base/tool_outputs/deep_research_survey.md`, `taxonomy.json`,
+   and `papers_to_download.json`.
 3. Create taxonomy folders under `02_knowledge_base/related_works/`.
 4. Download public papers with:
 
@@ -71,6 +78,10 @@ rediscovering them.
    and the root `README.md`, then commit and push according to the git protocol
    in `commands/phd.md`.
 10. Ask the user those exact 10 calibration questions before moving to Step 3.
+
+If tmux is unavailable or the helper cannot start, write the failure note in
+`02_knowledge_base/tool_outputs/tool_failure.md` and ask before continuing
+without Deep Research. Do not fall back to a foreground Deep Research run.
 
 ## Output
 

@@ -15,6 +15,8 @@ The package source contains:
 - `commands/phd.md` - the agent command
 - `guides/` - per-step instructions
 - `scripts/deep-research-idea.js` - Step 1/2 OpenAI Deep Research helper
+- `scripts/run-deep-research-tmux.js` - tmux wrapper for non-blocking Deep
+  Research runs
 - `scripts/download-papers.js` - Step 2 public-paper downloader
 - `scripts/postinstall.js` - installs the command for Claude Code and Codex
 - `scripts/postuninstall.js` - removes installed command files
@@ -36,6 +38,11 @@ load time.
 If `$phd` or `/phd` is invoked with no research idea and no existing resumable
 `research_project/`, the agent must ask for the user's topic and creation
 intent before creating any folders, git repo, README logs, or Markdown files.
+
+All Deep Research helper calls must be launched through
+`scripts/run-deep-research-tmux.js`, which starts a detached tmux session and
+records session metadata/logs. Agents should never block the foreground process
+by running `deep-research-idea.js` directly.
 
 0. `guides/00-project.md` - create `research_project/`, initialize git there,
    create the step folders, and initialize append-only README logs

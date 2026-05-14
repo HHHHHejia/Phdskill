@@ -33,14 +33,20 @@ README, and use the logs to continue from the latest recorded state rather than
 starting over.
 
 1. Read the raw idea and constraints from `00_project_setup.md`.
-2. Run the bundled Deep Research helper:
+2. Start the bundled Deep Research helper in a detached tmux session:
 
    ```bash
-   node <path-to-phd-skill>/scripts/deep-research-idea.js \
+   node <path-to-phd-skill>/scripts/run-deep-research-tmux.js \
      --project-root <output-repo>
    ```
 
-3. Read the raw tool outputs in `01_idea/tool_outputs/`.
+   Do not run `deep-research-idea.js` directly in the foreground. The tmux
+   wrapper returns immediately and writes session metadata, logs, and completion
+   status under `01_idea/tool_outputs/`.
+3. Record the tmux session name and log path in `01_idea/README.md`. Check
+   progress with `tmux capture-pane -pt <session>` or the log file. After the
+   tmux job finishes successfully, read the raw tool outputs in
+   `01_idea/tool_outputs/`.
 4. Before writing `01_idea/idea.md`, ask the user exactly 10
    decision-oriented questions to clarify the research direction, constraints,
    and success criteria.
@@ -54,9 +60,9 @@ starting over.
    `commands/phd.md`.
 9. Ask the user those exact 10 calibration questions before moving to Step 2.
 
-If the helper cannot run, write the failure note in
+If tmux is unavailable or the helper cannot start, write the failure note in
 `01_idea/tool_outputs/tool_failure.md` and ask before continuing without Deep
-Research.
+Research. Do not fall back to a foreground Deep Research run.
 
 ## Output
 
