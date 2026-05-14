@@ -85,6 +85,9 @@ by manifests, checksums, metadata, and README log references.
 Every formal stage Markdown file uses human-in-the-loop checkpoints: before
 writing, the agent asks 10 questions to clarify requirements; after writing, it
 asks 10 calibration questions to confirm the direction before the next step.
+When a user-question tool is available, the agent must use it one question at a
+time and wait for each answer before asking the next question. It should not
+dump all 10 questions into one message.
 
 ## Hard Rules
 

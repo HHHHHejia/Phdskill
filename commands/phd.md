@@ -62,6 +62,15 @@ Human-in-the-loop checkpoints are required for every formal stage Markdown file:
   `Post-Write Calibration Questions`.
 - Do not advance to the next step until the user has had a chance to respond.
 
+Ask checkpoint questions one at a time. When the environment provides a
+user-question tool such as Codex's "Ask User Question" / `request_user_input`,
+use that tool for each checkpoint question, with one question per tool call, and
+wait for the user's answer before asking the next question. Do not dump all 10
+questions into one assistant message, one Markdown list, or one multi-question
+tool call. Record each question and answer as it arrives. If no user-question
+tool is available, ask exactly one concise question in normal chat and wait
+before continuing.
+
 Use progressive disclosure. The skill body is only the routing layer: identify
 the active step, then load only that step's guide and only the helper script you
 actually need to run or debug. Do not read all guides or all bundled scripts at
@@ -184,5 +193,6 @@ their manifests, metadata, checksums, and README log references instead.
 - Stop for explicit user approval before finalizing the refined direction,
   running experiments, accepting paper claims, or submitting.
 
-For the required human checkpoints, ask exactly 10 questions. For any other
-ad-hoc clarification, keep questions concise and decision-oriented.
+For the required human checkpoints, ask exactly 10 questions, one at a time
+using the user-question protocol above. For any other ad-hoc clarification, keep
+questions concise and decision-oriented.
