@@ -1,0 +1,78 @@
+name: Publish npm package
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org
+
+      - name: Validate package
+        run: npm run validate
+
+      - name: Set next patch version
+        run: |
+          node <<'NODE'
+          const fs = require("fs");
+          const cp = require("child_process");
+
+          const pkgPath = "package.json";
+          const pkg = JSON.parse(fs.readFileSync(pkgPath, "utf8"));
+          const parse = (version) => {
+            const parts = version.split(".").map(Number);
+            if (parts.length !== 3 || parts.some((part) => !Number.isInteger(part))) {
+              throw new Error(`Cannot auto-bump non-semver version: ${version}`);
+            }
+            return parts;
+          };
+          const compare = (left, right) => {
+            for (let index = 0; index < 3; index += 1) {
+              if (left[index] !== right[index]) return left[index] - right[index];
+            }
+            return 0;
+          };
+
+          let latest = null;
+
+          try {
+            latest = cp.execFileSync("npm", ["view", pkg.name, "version"], {
+              encoding: "utf8",
+              stdio: ["ignore", "pipe", "ignore"],
+            }).trim() || null;
+          } catch {
+            // Package may not exist yet. In that case publish package.json's version.
+          }
+
+          const localParts = parse(pkg.version);
+          if (latest) {
+            const latestParts = parse(latest);
+            if (compare(localParts, latestParts) <= 0) {
+              pkg.version = `${latestParts[0]}.${latestParts[1]}.${latestParts[2] + 1}`;
+            }
+          }
+
+          fs.writeFileSync(pkgPath, `${JSON.stringify(pkg, null, 2)}\n`);
+          console.log(`Publishing ${pkg.name}@${pkg.version}`);
+          NODE
+
+      - name: Publish to npm
+        run: npm publish --access public --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

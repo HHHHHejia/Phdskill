@@ -14,6 +14,8 @@ cannot be tested under the user's constraints, write the issue inside
 - Formal stage output: write exactly one Markdown file in
   `04_experiment_plan/`.
 - Paper output: write exactly one LaTeX file in `07_paper_latex/`.
+- Continuity output: append to `04_experiment_plan/README.md` and the root
+  `README.md`; these logs do not count as formal stage outputs.
 - Read `00_project_setup.md`, `01_idea/idea.md`,
   `02_knowledge_base/knowledge_base.md`, and `03_method/method.md`.
 - Do not write experiment code, run logs, analysis, review notes, or any other
@@ -30,6 +32,11 @@ cannot be tested under the user's constraints, write the issue inside
 - User approval of the Step 3 method direction
 
 ## Actions
+
+Before the numbered actions, run the continuity resume protocol from
+`commands/phd.md`: read the root README first, then every numbered folder
+README, and use the logs to reuse approved hypotheses, method constraints,
+dataset or baseline decisions, and unresolved experiment-planning blockers.
 
 1. Convert each method hypothesis into one or more experiments.
 2. Define datasets, tasks, environments, or evaluation cases. Mark anything not
@@ -49,8 +56,12 @@ cannot be tested under the user's constraints, write the issue inside
    ablations, budget, and approval constraints.
 9. State what the user must approve before code or experiments begin.
 10. After writing `04_experiment_plan/experiment_plan.md` and
-    `07_paper_latex/experiments.tex`, ask the user exactly 10 calibration
-    questions before moving to Step 5.
+    `07_paper_latex/experiments.tex`, add exactly 10 post-write calibration
+    questions to `04_experiment_plan/experiment_plan.md`.
+11. Append completion or blocked-state entries to
+    `04_experiment_plan/README.md` and the root `README.md`, then commit and
+    push according to the git protocol in `commands/phd.md`.
+12. Ask the user those exact 10 calibration questions before moving to Step 5.
 
 ## Output
 
@@ -112,10 +123,11 @@ This should be an experimental-setup draft, not a results section. It must:
 ## Stop Gate
 
 Stop after `04_experiment_plan/experiment_plan.md` and
-`07_paper_latex/experiments.tex` are written and the 10 post-write calibration
-questions have been asked. Ask the user to approve or modify datasets,
-baselines, metrics, ablations, budget, and any privacy or data-access
-constraints.
+`07_paper_latex/experiments.tex` are written, the README logs are updated,
+commit/push has been attempted, and the 10 post-write calibration questions
+have been asked. Ask the user to approve or modify datasets, baselines, metrics,
+ablations, budget, and any privacy or data-access constraints, and report the
+commit/push status.
 
 Do not move to experiment code or run any experiment until the user approves
 the plan.

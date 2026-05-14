@@ -12,10 +12,14 @@ Code (`/phd`).
   experiment plan, execution logs, analysis artifacts, writing drafts, review
   notes, and revision artifacts.
 
-Start with Step 0. If the user is already inside a target research repo, use it.
-If not, ask for or choose a sensible output repo path, create it, initialize
-git, and create the project structure. Do not create the paper project inside
-this skill repository.
+Start with Step 0. The output project root is a directory named
+`research_project/` unless the user explicitly points to an existing equivalent
+project root. That directory is the git repository root and must contain all
+numbered workflow folders. If the current directory is already the target
+`research_project/` repo, use it. If the current directory contains an existing
+`research_project/`, use that. Otherwise ask for or choose a sensible parent
+path, create `research_project/`, initialize git there, and create the project
+structure. Do not create the paper project inside this skill repository.
 
 After Step 0, each step edits only its corresponding output folder plus any
 explicit paper-draft side effect named in that step guide. It reads only earlier
@@ -28,9 +32,11 @@ For each research step, keep formal outputs to two files:
 
 Artifacts are exceptions: Deep Research raw reports/JSON, source annotations,
 paper-download manifests, downloaded PDFs, metadata, download logs,
-experiment-code repository files, raw run folders, analysis scripts, processed
+experiment-code files, raw run folders, analysis scripts, processed
 tables, generated figures, analysis logs, LaTeX source files, bibliography
 files, PDFs, and LaTeX logs may live under their designated artifact folders.
+Required append-only `README.md` continuity logs are also artifacts and do not
+count as formal stage Markdown outputs.
 
 Human-in-the-loop checkpoints are required for every formal stage Markdown file:
 
@@ -63,8 +69,66 @@ installed under `~/.claude/commands/phd-guides/` and helper scripts under
 | 7 | `07_paper_latex/` | `guides/07-writing.md` | `writing.md` + `main.tex` + polished sections |
 | 8 | `08_review/` | `guides/08-review.md` | `审稿意见.md` |
 
-These numbered output folders are outputs of the workflow in the generated project
+These numbered output folders live inside the generated `research_project/`
 repo. They do not belong in this skill package.
+
+## Continuity, Logs, And Git
+
+This workflow must support resume-from-checkpoint behavior. On every invocation:
+
+1. Identify the target `research_project/` root before doing research work.
+2. If `research_project/README.md` already exists, treat the run as a resumed
+   run. Read the root README first, then read every numbered folder README:
+   `01_idea/README.md` through `08_review/README.md`, if present.
+3. Use those logs to locate reusable artifacts, unfinished tasks, user
+   decisions, blockers, and the next resume point before reading heavy artifacts
+   such as PDFs, raw tool outputs, run folders, or code.
+4. If a README log conflicts with the filesystem or git history, inspect
+   `git status`, `git log`, and the relevant artifacts, then append a correction
+   log entry. Do not rewrite old log entries.
+
+The root README and every numbered folder README are append-only continuity
+logs. Create missing README logs as soon as the folder exists. Prior entries
+must not be deleted or edited unless the user explicitly asks for a correction;
+even then, prefer appending a correction entry.
+
+Root README entries should be concise and cross-stage:
+
+```markdown
+### <ISO-8601 timestamp> | <stage-id> | <task name>
+- Status: <in-progress | complete | blocked | needs-human>
+- Summary: <what changed>
+- Changed paths: `<path>`, `<path>`
+- Reusable state: <papers, code, runs, figures, decisions, or artifacts to reuse>
+- Next resume point: <exact next action>
+- Validation: <checks run or skipped>
+- Git: commit `<hash-or-pending>`, push `<pushed | pending | unavailable>`
+```
+
+Folder README entries should be stage-local:
+
+```markdown
+### <ISO-8601 timestamp> | <task name>
+- Status: <in-progress | complete | blocked | needs-human>
+- Decisions: <user choices or assumptions>
+- Artifacts: `<relative/path>`, `<relative/path>`
+- Reusable state: <what a future run should read or reuse first>
+- Next resume point: <exact next action inside this stage>
+- Validation: <checks run or skipped>
+- Git: commit `<hash-or-pending>`, push `<pushed | pending | unavailable>`
+```
+
+After any stage task reaches a stop gate, or after any meaningful approved
+subtask changes project files, update the relevant folder README and the root
+README before committing. Then run `git status`, stage the relevant safe files,
+commit with a message such as `stage 02: update knowledge base`, and push to the
+configured upstream. If no remote/upstream exists, or push fails because of
+auth/network limits, keep the local commit, record `push pending` in both README
+logs, and tell the user. Track code, Markdown, configs, scripts, manifests, and
+small reproducibility artifacts in git. Do not commit secrets, credentials,
+private keys, large raw datasets, large PDFs, model checkpoints, or large run
+outputs unless the user explicitly approves; preserve them on disk and track
+their manifests, metadata, checksums, and README log references instead.
 
 ## Hard Rules
 

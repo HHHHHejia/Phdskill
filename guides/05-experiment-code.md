@@ -2,8 +2,8 @@
 
 ## Goal
 
-Create a standalone experiment-code git repository inside `05_experiment_code/`
-and implement the runnable code required by the approved experiment plan.
+Create runnable experiment code inside `05_experiment_code/` and track code
+changes with the root `research_project/` git repository.
 
 This step writes code. It may run cheap unit tests or smoke tests, but it does
 not run full experiments, analyze results, or change the approved plan.
@@ -12,12 +12,16 @@ not run full experiments, analyze results, or change the approved plan.
 
 - Work only inside `05_experiment_code/`, except for the paper output named
   below.
-- Initialize `05_experiment_code/` as its own git repository if it is not
-  already one.
+- Do not initialize `05_experiment_code/` as a nested git repository unless the
+  user explicitly asks. The root `research_project/` git repo tracks experiment
+  code changes.
 - Formal stage output: write exactly one Markdown file in
   `05_experiment_code/`.
-- Code artifacts are allowed inside the nested git repo: source files, configs,
-  tests, scripts, dependency files, environment templates, and small fixtures.
+- Continuity output: append to `05_experiment_code/README.md` and the root
+  `README.md`; these logs do not count as formal stage outputs.
+- Code artifacts are allowed inside `05_experiment_code/`: source files,
+  configs, tests, scripts, dependency files, environment templates, and small
+  fixtures.
 - Paper output: write or update exactly one LaTeX file in `07_paper_latex/`.
 - Read `00_project_setup.md`, `01_idea/idea.md`,
   `02_knowledge_base/knowledge_base.md`, `03_method/method.md`, and
@@ -38,14 +42,23 @@ not run full experiments, analyze results, or change the approved plan.
 
 ## Actions
 
-1. Create `05_experiment_code/` if needed and initialize git there.
+Before the numbered actions, run the continuity resume protocol from
+`commands/phd.md`: read the root README first, then every numbered folder
+README, and use the logs to reuse existing code, configs, tests, run-storage
+contracts, smoke-test status, and known blockers instead of scaffolding from
+scratch.
+
+1. Create `05_experiment_code/` if needed and ensure it is tracked by the root
+   `research_project/` git repo.
 2. Choose the smallest implementation stack that satisfies the experiment plan
    and user constraints.
 3. Before writing code or `05_experiment_code/implementation.md`, ask the user
    exactly 10 decision-oriented questions to clarify implementation stack,
    runtime constraints, logging needs, and run storage expectations.
-4. Scaffold a runnable code repo with dependency files, source code, configs,
-   scripts, tests, and a minimal README if useful for the code repo.
+4. Scaffold a runnable code tree with dependency files, source code, configs,
+   scripts, tests, and concise usage notes in `implementation.md` or another
+   clearly named artifact if needed. Preserve `05_experiment_code/README.md` as
+   the append-only continuity log.
 5. Implement the approved method, baselines, dataset/task loading, metrics, and
    logging conventions from `04_experiment_plan/experiment_plan.md`.
 6. Use predictable paths inside `05_experiment_code/`:
@@ -74,8 +87,12 @@ not run full experiments, analyze results, or change the approved plan.
 12. Record what was implemented, how to run it, and what checks passed in
    `05_experiment_code/implementation.md`.
 13. After writing `05_experiment_code/implementation.md` and updating
-    `07_paper_latex/experiments.tex`, ask the user exactly 10 calibration
-    questions before moving to Step 6.
+    `07_paper_latex/experiments.tex`, add exactly 10 post-write calibration
+    questions to `05_experiment_code/implementation.md`.
+14. Append completion or blocked-state entries to `05_experiment_code/README.md`
+    and the root `README.md`, then commit and push according to the git protocol
+    in `commands/phd.md`.
+15. Ask the user those exact 10 calibration questions before moving to Step 6.
 
 Do not silently change datasets, baselines, metrics, hypotheses, or budget. If
 the approved plan cannot be implemented as written, document the blocker in
@@ -134,14 +151,16 @@ on full experiment execution.
 
 ## Stop Gate
 
-Stop after the code repo is created, the implementation is written, and cheap
-checks have been run or explicitly skipped with a reason, then ask the 10
-post-write calibration questions. Summarize:
+Stop after the code tree is created, the implementation is written, and cheap
+checks have been run or explicitly skipped with a reason, the README logs are
+updated, and commit/push has been attempted, then ask the 10 post-write
+calibration questions. Summarize:
 
-- where the nested code git repo is
+- where the experiment code directory is
 - which components were implemented
 - how to run smoke tests
 - how to run the planned experiments later
 - what blockers remain, if any
+- the commit/push status
 
 Do not run full experiments until the user approves.

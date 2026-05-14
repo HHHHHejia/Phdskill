@@ -12,8 +12,11 @@ analysis evidence.
 
 ## Folder Contract
 
-- Work only inside `07_paper_latex/`.
+- Work only inside `07_paper_latex/`, except for the required root README log
+  update.
 - Formal stage output: write exactly one Markdown file in `07_paper_latex/`.
+- Continuity output: append to `07_paper_latex/README.md` and the root
+  `README.md`; these logs do not count as formal stage outputs.
 - Paper artifacts are allowed inside `07_paper_latex/`: `.tex`, `.bib`, style
   files, figure/table references, build scripts, generated PDFs, and LaTeX logs.
 - Read `00_project_setup.md`, `01_idea/idea.md`,
@@ -38,6 +41,11 @@ analysis evidence.
 - all earlier formal stage Markdown files
 
 ## Actions
+
+Before the numbered actions, run the continuity resume protocol from
+`commands/phd.md`: read the root README first, then every numbered folder
+README, and use the logs to reuse existing section drafts, citation decisions,
+figures, tables, build status, and unresolved paper TODOs.
 
 1. Create or update the LaTeX project structure under `07_paper_latex/`.
 2. Before writing `07_paper_latex/writing.md` or polishing the final LaTeX
@@ -67,7 +75,12 @@ analysis evidence.
 11. Fix obvious LaTeX errors, missing includes, broken references, and undefined
    citations when the fix is evidence-preserving.
 12. After writing `07_paper_latex/writing.md` and polishing the LaTeX paper,
-    ask the user exactly 10 calibration questions before moving to Step 8.
+    add exactly 10 post-write calibration questions to
+    `07_paper_latex/writing.md`.
+13. Append completion or blocked-state entries to `07_paper_latex/README.md`
+    and the root `README.md`, then commit and push according to the git protocol
+    in `commands/phd.md`.
+14. Ask the user those exact 10 calibration questions before moving to Step 8.
 
 ## Output
 
@@ -151,12 +164,14 @@ citations, or claims that need user approval.
 ## Stop Gate
 
 Stop after the LaTeX paper is polished and `07_paper_latex/writing.md` is
-written, then ask the 10 post-write calibration questions. Summarize:
+written, the README logs are updated, and commit/push has been attempted, then
+ask the 10 post-write calibration questions. Summarize:
 
 - the paper structure
 - which LaTeX files were created or updated
 - whether the paper compiled
 - unresolved citation, figure, table, or evidence TODOs
 - what Step 8 should review most critically
+- the commit/push status
 
 Do not move to review until the user approves the written draft.

@@ -12,6 +12,8 @@ experiment plan, code, datasets, baselines, or metrics after seeing results.
 
 - Work only inside `06_analysis/`, except for the paper output named below.
 - Formal stage output: write exactly one Markdown file in `06_analysis/`.
+- Continuity output: append to `06_analysis/README.md` and the root
+  `README.md`; these logs do not count as formal stage outputs.
 - Analysis artifacts are allowed inside `06_analysis/`: scripts, small helper
   modules, processed result tables, generated figures, plot logs, and cached
   intermediate files.
@@ -35,6 +37,12 @@ experiment plan, code, datasets, baselines, or metrics after seeing results.
 
 ## Actions
 
+Before the numbered actions, run the continuity resume protocol from
+`commands/phd.md`: read the root README first, then every numbered folder
+README, and use the logs to reuse known run folders, analysis scripts,
+processed tables, generated figures, claim-support notes, and unfinished
+analysis blockers.
+
 1. Locate completed run folders and verify each has enough metadata to identify
    command, config, method variant, baseline, dataset/task, seed, and metrics.
 2. Refuse to analyze missing or ambiguous runs as if they were real evidence.
@@ -56,7 +64,11 @@ experiment plan, code, datasets, baselines, or metrics after seeing results.
 11. Produce publication-ready figure/table artifacts when possible, with source
    data paths recorded in `analysis.md`.
 12. After writing `06_analysis/analysis.md` and `07_paper_latex/results.tex`,
-    ask the user exactly 10 calibration questions before moving to Step 7.
+    add exactly 10 post-write calibration questions to `06_analysis/analysis.md`.
+13. Append completion or blocked-state entries to `06_analysis/README.md` and
+    the root `README.md`, then commit and push according to the git protocol in
+    `commands/phd.md`.
+14. Ask the user those exact 10 calibration questions before moving to Step 7.
 
 ## Output
 
@@ -118,12 +130,14 @@ outputs. It must:
 ## Stop Gate
 
 Stop after `06_analysis/analysis.md` and `07_paper_latex/results.tex` are
-written and the 10 post-write calibration questions have been asked. Summarize:
+written, the README logs are updated, commit/push has been attempted, and the
+10 post-write calibration questions have been asked. Summarize:
 
 - which runs were analyzed
 - where processed results, figures, tables, and logs were stored
 - which claims are supported
 - which claims are weak, failed, or still need experiments
 - what Step 7 should write or soften in the paper
+- the commit/push status
 
 Do not move to writing refinement until the user approves the analysis.

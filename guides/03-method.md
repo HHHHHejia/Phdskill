@@ -12,6 +12,8 @@ write code, run experiments, analyze results, or make performance claims.
 
 - Formal stage output: write exactly one Markdown file in `03_method/`.
 - Paper output: write exactly one LaTeX file in `07_paper_latex/`.
+- Continuity output: append to `03_method/README.md` and the root `README.md`;
+  these logs do not count as formal stage outputs.
 - Read `00_project_setup.md`, `01_idea/idea.md`, and
   `02_knowledge_base/knowledge_base.md`.
 - Read paper originals and metadata under `02_knowledge_base/related_works/`
@@ -28,6 +30,11 @@ write code, run experiments, analyze results, or make performance claims.
 - User approval of the Step 2 direction and knowledge base
 
 ## Actions
+
+Before the numbered actions, run the continuity resume protocol from
+`commands/phd.md`: read the root README first, then every numbered folder
+README, and use the logs to reuse the approved direction, literature library,
+nearest prior methods, and any unresolved method-design decisions.
 
 1. Identify the precise research gap the method should address.
 2. Inspect original text of the most relevant prior papers whenever available.
@@ -46,8 +53,12 @@ write code, run experiments, analyze results, or make performance claims.
    what condition.
 8. Mark unsupported design claims as `SPECULATIVE`, `NEEDS_VERIFICATION`,
    `NEEDS_EXPERIMENT`, or `NEEDS_HUMAN_DECISION`.
-9. After writing `03_method/method.md` and `07_paper_latex/method.tex`, ask the
-   user exactly 10 calibration questions before moving to Step 4.
+9. After writing `03_method/method.md` and `07_paper_latex/method.tex`, add
+   exactly 10 post-write calibration questions to `03_method/method.md`.
+10. Append completion or blocked-state entries to `03_method/README.md` and the
+    root `README.md`, then commit and push according to the git protocol in
+    `commands/phd.md`.
+11. Ask the user those exact 10 calibration questions before moving to Step 4.
 
 ## Output
 
@@ -104,9 +115,10 @@ This should be a method-section draft, not a results section. It must:
 
 ## Stop Gate
 
-Stop after `03_method/method.md` and `07_paper_latex/method.tex` are written.
-Summarize the selected method, why it is plausibly novel, the strongest risks,
-the hypotheses Step 4 should test, and ask the 10 post-write calibration
-questions.
+Stop after `03_method/method.md` and `07_paper_latex/method.tex` are written,
+the README logs are updated, commit/push has been attempted, and the 10
+post-write calibration questions have been asked. Summarize the selected
+method, why it is plausibly novel, the strongest risks, the hypotheses Step 4
+should test, and the commit/push status.
 
 Do not move to experiment planning until the user approves the method.

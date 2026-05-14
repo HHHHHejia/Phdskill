@@ -5,15 +5,18 @@
 Review the completed paper as a critical domain expert and write reviewer-style
 comments.
 
-This step is read-only with respect to the research project. It identifies
-weaknesses, missing evidence, overclaims, unclear writing, invalid comparisons,
-and likely reviewer objections. It does not modify code, experiments, analysis,
-or LaTeX paper files.
+This step is read-only with respect to research artifacts outside `08_review/`
+and the required root README log. It identifies weaknesses, missing evidence,
+overclaims, unclear writing, invalid comparisons, and likely reviewer
+objections. It does not modify code, experiments, analysis, or LaTeX paper
+files.
 
 ## Folder Contract
 
-- Write only in `08_review/`.
+- Write only in `08_review/`, except for the required root README log update.
 - Formal stage output: write exactly one Markdown file in `08_review/`.
+- Continuity output: append to `08_review/README.md` and the root `README.md`;
+  these logs do not count as formal stage outputs.
 - Read the completed paper under `07_paper_latex/`.
 - Read all earlier formal stage outputs and evidence artifacts as needed.
 - Do not modify `05_experiment_code/`, `06_analysis/`, `07_paper_latex/`, or
@@ -34,6 +37,11 @@ or LaTeX paper files.
 
 ## Actions
 
+Before the numbered actions, run the continuity resume protocol from
+`commands/phd.md`: read the root README first, then every numbered folder
+README, and use the logs to reuse prior review criteria, paper build status,
+known evidence gaps, and unresolved revision priorities.
+
 1. Read the paper as if reviewing for a serious venue in the relevant field.
 2. Check whether the problem, novelty, method, experiments, and claims are
    aligned.
@@ -51,9 +59,13 @@ or LaTeX paper files.
 7. Produce reviewer-style criticism with severity and actionable fixes.
 8. Recommend a verdict such as strong reject, reject, borderline, weak accept,
    or accept, with honest justification.
-9. After writing `08_review/审稿意见.md`, ask the user exactly 10 calibration
+9. After writing `08_review/审稿意见.md`, add exactly 10 post-write calibration
    questions about whether the critique matches the intended review standard
    and revision priorities.
+10. Append completion or blocked-state entries to `08_review/README.md` and the
+    root `README.md`, then commit and push according to the git protocol in
+    `commands/phd.md`.
+11. Ask the user those exact 10 calibration questions.
 
 ## Output
 
@@ -105,11 +117,13 @@ Do not edit `07_paper_latex/` in this step. The output is criticism only.
 ## Stop Gate
 
 Stop after `08_review/审稿意见.md` is written and the 10 post-write calibration
-questions have been asked. Summarize:
+questions have been asked, the README logs are updated, and commit/push has
+been attempted. Summarize:
 
 - suggested verdict
 - top 3-5 blocking issues
 - strongest missing evidence
 - highest-impact revisions
+- the commit/push status
 
 Do not modify code, analysis, experiments, or LaTeX files.

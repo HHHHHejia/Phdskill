@@ -13,6 +13,8 @@ downloaded references when public downloads are available.
 - Formal stage output: write exactly one Markdown file in
   `02_knowledge_base/`.
 - Paper output: write exactly one LaTeX file in `07_paper_latex/`.
+- Continuity output: append to `02_knowledge_base/README.md` and the root
+  `README.md`; these logs do not count as formal stage outputs.
 - Allowed tool artifacts: `02_knowledge_base/tool_outputs/` may contain raw
   Deep Research reports, raw JSON, taxonomy JSON, paper-download manifests, and
   tool failure notes.
@@ -30,6 +32,12 @@ downloaded references when public downloads are available.
 - User direction choice from Step 1
 
 ## Actions
+
+Before the numbered actions, run the continuity resume protocol from
+`commands/phd.md`: read the root README first, then every numbered folder
+README, and use the logs to reuse prior survey outputs, downloaded papers,
+metadata, taxonomy folders, and unfinished download batches instead of
+rediscovering them.
 
 1. Run the Deep Research helper in knowledge-base mode:
 
@@ -57,8 +65,12 @@ downloaded references when public downloads are available.
 7. Synthesize the survey, taxonomy, downloads, and metadata into the single
    formal output `02_knowledge_base/knowledge_base.md`.
 8. After writing `02_knowledge_base/knowledge_base.md` and
-   `07_paper_latex/relatedwork.tex`, ask the user exactly 10 calibration
-   questions before moving to Step 3.
+   `07_paper_latex/relatedwork.tex`, add exactly 10 post-write calibration
+   questions to `02_knowledge_base/knowledge_base.md`.
+9. Append completion or blocked-state entries to `02_knowledge_base/README.md`
+   and the root `README.md`, then commit and push according to the git protocol
+   in `commands/phd.md`.
+10. Ask the user those exact 10 calibration questions before moving to Step 3.
 
 ## Output
 
@@ -118,10 +130,11 @@ This should be an evidence-grounded related-work draft. It must:
 ## Stop Gate
 
 Stop after `02_knowledge_base/knowledge_base.md` and
-`07_paper_latex/relatedwork.tex` are written and the 10 post-write calibration
-questions have been asked. Summarize downloaded papers, metadata-only sources,
-taxonomy categories, novelty risks, and what Step 3 should design the method
-around.
+`07_paper_latex/relatedwork.tex` are written, the README logs are updated,
+commit/push has been attempted, and the 10 post-write calibration questions
+have been asked. Summarize downloaded papers, metadata-only sources, taxonomy
+categories, novelty risks, what Step 3 should design the method around, and the
+commit/push status.
 
 Do not move to method design until the user approves the selected direction and
 knowledge base.

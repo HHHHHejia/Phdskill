@@ -2,20 +2,21 @@
 
 ## Goal
 
-Create the output git repository and the numbered folder structure for the
-paper project.
+Create the `research_project/` git repository and the numbered folder structure
+for the paper project.
 
 This step only prepares the workspace. It does not do research, design methods,
 write experiment plans, run code, analyze results, or draft paper sections.
 
 ## Folder Contract
 
-- Create or use the output research repo.
-- Initialize git if the output repo is not already a git repo.
+- Create or use `research_project/` as the output research repo unless the user
+  explicitly points to an existing equivalent project root.
+- Initialize git in `research_project/` if it is not already a git repo.
 - Create only the project scaffold and the single setup record.
 - Formal output for this step is `00_project_setup.md`.
-- The root `README.md`, `.gitignore`, and numbered folders are setup artifacts,
-  not research-stage outputs.
+- The root `README.md`, numbered-folder `README.md` logs, `.gitignore`, and
+  numbered folders are setup artifacts, not research-stage outputs.
 
 ## Inputs
 
@@ -25,13 +26,19 @@ write experiment plans, run code, analyze results, or draft paper sections.
 
 ## Actions
 
-1. Decide the output repository path.
-   - Use the user's path if provided.
-   - If no path is provided, create a concise folder name from the idea.
+1. Decide the output project root.
+   - If the current directory already is a valid `research_project/` repo, use
+     it.
+   - If the current directory contains `research_project/`, use that existing
+     directory.
+   - If the user provided a parent path, create or use
+     `<parent>/research_project/`.
+   - If no path is provided, choose a sensible parent path and create
+     `research_project/` there.
    - Ask before creating files if the location is ambiguous or risky.
-2. Create the output directory.
-3. Initialize git in the output directory if needed.
-4. Create these numbered folders:
+2. Create the `research_project/` directory.
+3. Initialize git in `research_project/` if needed.
+4. Create these numbered folders inside `research_project/`:
    - `01_idea/`
    - `02_knowledge_base/`
    - `03_method/`
@@ -40,13 +47,22 @@ write experiment plans, run code, analyze results, or draft paper sections.
    - `06_analysis/`
    - `07_paper_latex/`
    - `08_review/`
-5. Create a minimal root `README.md`.
-6. Create a minimal `.gitignore`.
-7. Before writing `00_project_setup.md`, ask the user exactly 10
+5. Create a root `README.md` with the append-only continuity log structure
+   from `commands/phd.md`.
+6. Create an append-only `README.md` continuity log in every numbered folder.
+7. Create a minimal `.gitignore` that protects secrets and large/generated
+   artifacts while allowing git to track code, Markdown, configs, scripts,
+   manifests, metadata, and small reproducibility artifacts.
+8. Before writing `00_project_setup.md`, ask the user exactly 10
    decision-oriented questions to clarify setup requirements.
-8. Create `00_project_setup.md`.
-9. After writing `00_project_setup.md`, ask the user exactly 10 calibration
-   questions before moving to Step 1.
+9. Create `00_project_setup.md`, including exactly 10 post-write calibration
+   questions in its final section.
+10. Append setup-complete entries to the root README and each folder README
+    that now has an initialized status.
+11. Commit the setup files in the `research_project/` git repo and push to the
+    configured upstream when available. If push is unavailable, record
+    `push pending` in the README logs.
+12. Ask the user those exact 10 calibration questions before moving to Step 1.
 
 ## Output
 
@@ -82,5 +98,7 @@ them into separate stage files unless the user explicitly asks.
 ## Stop Gate
 
 Stop after the repository and folder structure exist, `00_project_setup.md` is
-written, and the 10 post-write calibration questions have been asked. Tell the
-user where the repo is and that the next step is `01_idea`.
+written, the README logs are updated, the setup commit has been created and push
+has been attempted, and the 10 post-write calibration questions have been asked.
+Tell the user where `research_project/` is, the commit/push status, and that the
+next step is `01_idea`.
