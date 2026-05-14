@@ -122,7 +122,8 @@ npm pack --dry-run
 
 Pushes to `main` run `.github/workflows/npm-publish.yml`. The workflow validates
 the package, reads the latest published npm version, bumps the patch version in
-CI, and publishes the package with npm provenance.
+CI, and publishes the package to npm. If this GitHub repository becomes public,
+the workflow can be changed to use `npm publish --provenance`.
 
 Required GitHub repository secret:
 
