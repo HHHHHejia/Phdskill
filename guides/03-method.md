@@ -42,7 +42,7 @@ nearest prior methods, and any unresolved method-design decisions.
 3. Generate 2-3 plausible method candidates.
 4. Select one recommended method, or ask the user to choose if the tradeoff is
    genuinely ambiguous.
-5. Before writing `03_method/method.md`, ask the user up to 10 non-trivial,
+5. Before writing `03_method/method.md`, ask the user up to 5 non-trivial,
    decision-oriented questions to clarify method preferences, risk tolerance,
    feasibility constraints, and novelty priorities. Ask only questions whose
    answers could change the selected method, assumptions, hypotheses, risks, or
@@ -55,7 +55,11 @@ nearest prior methods, and any unresolved method-design decisions.
    what condition.
 8. Mark unsupported design claims as `SPECULATIVE`, `NEEDS_VERIFICATION`,
    `NEEDS_EXPERIMENT`, or `NEEDS_HUMAN_DECISION`.
-9. Append completion or blocked-state entries to `03_method/README.md` and the
+9. Ask up to 5 non-trivial post-write calibration questions whose answers could
+   change the selected method, hypothesis set, risk labels, Step 4 planning
+   brief, or approval to continue. Record them in `03_method/method.md`.
+10. Apply any needed Step 3 revisions before logging or committing.
+11. Append completion or blocked-state entries to `03_method/README.md` and the
     root `README.md`, then commit and push according to the git protocol in
     `commands/phd.md`.
 
@@ -89,6 +93,8 @@ Use this structure:
 ## Testable Hypotheses
 
 ## Step 4 Experiment Planning Brief
+
+## Post-Write Calibration Questions
 ```
 
 Do not create any other formal Markdown files for this step; fold all sections
@@ -113,8 +119,9 @@ This should be a method-section draft, not a results section. It must:
 ## Stop Gate
 
 Stop after `03_method/method.md` and `07_paper_latex/method.tex` are written,
-the README logs are updated, and commit/push has been attempted. Summarize the
-selected method, why it is plausibly novel, the strongest risks, the hypotheses
-Step 4 should test, and the commit/push status.
+the post-write checkpoint is handled, the README logs are updated, and
+commit/push has been attempted. Summarize the selected method, why it is
+plausibly novel, the strongest risks, the hypotheses Step 4 should test, and
+the commit/push status.
 
 Do not move to experiment planning until the user approves the method.

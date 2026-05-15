@@ -48,7 +48,7 @@ analysis blockers.
 2. Refuse to analyze missing or ambiguous runs as if they were real evidence.
    Mark gaps as `NEEDS_EXPERIMENT` or `NEEDS_VERIFICATION`.
 3. Before writing analysis scripts or `06_analysis/analysis.md`, ask the user
-   up to 10 non-trivial, decision-oriented questions to clarify analysis
+   up to 5 non-trivial, decision-oriented questions to clarify analysis
    priorities, statistical expectations, plotting needs, and claim boundaries.
    Ask only questions whose answers could change metric computation, statistical
    treatment, figure/table design, claim boundaries, or next action.
@@ -65,7 +65,12 @@ analysis blockers.
    from weak, failed, or inconclusive evidence.
 11. Produce publication-ready figure/table artifacts when possible, with source
    data paths recorded in `analysis.md`.
-12. Append completion or blocked-state entries to `06_analysis/README.md` and
+12. Ask up to 5 non-trivial post-write calibration questions whose answers
+    could change claim boundaries, statistical interpretation, figure/table
+    choices, missing-run labels, or Step 7 readiness. Record them in
+    `06_analysis/analysis.md`.
+13. Apply any needed Step 6 revisions before logging or committing.
+14. Append completion or blocked-state entries to `06_analysis/README.md` and
     the root `README.md`, then commit and push according to the git protocol in
     `commands/phd.md`.
 
@@ -101,6 +106,8 @@ Use this structure:
 ## Limitations
 
 ## Step 7 Writing Handoff
+
+## Post-Write Calibration Questions
 ```
 
 Do not create any other formal Markdown report for this step. Analysis scripts,
@@ -127,8 +134,8 @@ outputs. It must:
 ## Stop Gate
 
 Stop after `06_analysis/analysis.md` and `07_paper_latex/results.tex` are
-written, the README logs are updated, and commit/push has been attempted.
-Summarize:
+written, the post-write checkpoint is handled, the README logs are updated, and
+commit/push has been attempted. Summarize:
 
 - which runs were analyzed
 - where processed results, figures, tables, and logs were stored

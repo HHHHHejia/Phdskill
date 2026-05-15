@@ -82,12 +82,13 @@ and small reproducibility artifacts. Large raw datasets, large PDFs, model
 checkpoints, and large run outputs stay on disk by default and are represented
 by manifests, checksums, metadata, and README log references.
 
-Every formal stage Markdown file uses one human-in-the-loop pre-write
-checkpoint: before writing, the agent asks up to 10 non-trivial questions to
-clarify requirements. It asks fewer when fewer meaningful uncertainties remain.
-When a user-question tool is available, the agent must use it one question at a
-time and wait for each answer before asking the next question. It should not
-dump all questions into one message.
+Every formal stage Markdown file uses two human-in-the-loop checkpoints: before
+writing, the agent asks up to 5 non-trivial questions to clarify requirements;
+after drafting, it asks up to 5 non-trivial calibration questions before logs
+and commit. It asks fewer when fewer meaningful uncertainties remain. When a
+user-question tool is available, the agent must use it one question at a time
+and wait for each answer before asking the next question. It should not dump all
+questions into one message.
 
 ## Hard Rules
 

@@ -49,7 +49,7 @@ figures, tables, build status, and unresolved paper TODOs.
 
 1. Create or update the LaTeX project structure under `07_paper_latex/`.
 2. Before writing `07_paper_latex/writing.md` or polishing the final LaTeX
-   draft, ask the user up to 10 non-trivial, decision-oriented questions to
+   draft, ask the user up to 5 non-trivial, decision-oriented questions to
    clarify target venue, tone, claim strength, narrative emphasis, and
    formatting needs. Ask only questions whose answers could change structure,
    claim strength, venue formatting, figure/table handling, writing style, or
@@ -72,7 +72,12 @@ figures, tables, build status, and unresolved paper TODOs.
    the missing toolchain in `writing.md`.
 11. Fix obvious LaTeX errors, missing includes, broken references, and undefined
    citations when the fix is evidence-preserving.
-12. Append completion or blocked-state entries to `07_paper_latex/README.md`
+12. Ask up to 5 non-trivial post-write calibration questions whose answers
+    could change paper structure, claim strength, unresolved TODOs, build
+    acceptance, or Step 8 readiness. Record them in
+    `07_paper_latex/writing.md`.
+13. Apply any needed Step 7 revisions before logging or committing.
+14. Append completion or blocked-state entries to `07_paper_latex/README.md`
     and the root `README.md`, then commit and push according to the git protocol
     in `commands/phd.md`.
 
@@ -142,6 +147,8 @@ Use this structure:
 ## Remaining TODOs
 
 ## Step 8 Review Handoff
+
+## Post-Write Calibration Questions
 ```
 
 Do not create any other formal Markdown report for this step. LaTeX source
@@ -188,8 +195,8 @@ citations, or claims that need user approval.
 ## Stop Gate
 
 Stop after the LaTeX paper is polished and `07_paper_latex/writing.md` is
-written, the README logs are updated, and commit/push has been attempted, then
-summarize:
+written, the post-write checkpoint is handled, the README logs are updated, and
+commit/push has been attempted, then summarize:
 
 - the paper structure
 - which LaTeX files were created or updated

@@ -53,7 +53,7 @@ known evidence gaps, and unresolved revision priorities.
 5. Identify writing problems: unclear motivation, weak positioning, ambiguous
    method description, missing limitations, unsupported conclusion, or broken
    narrative flow.
-6. Before writing `08_review/审稿意见.md`, ask the user up to 10 non-trivial,
+6. Before writing `08_review/审稿意见.md`, ask the user up to 5 non-trivial,
    decision-oriented questions to clarify review strictness, target venue,
    reviewer persona, and preferred criticism depth. Ask only questions whose
    answers could change the review standard, severity, venue assumptions,
@@ -61,7 +61,11 @@ known evidence gaps, and unresolved revision priorities.
 7. Produce reviewer-style criticism with severity and actionable fixes.
 8. Recommend a verdict such as strong reject, reject, borderline, weak accept,
    or accept, with honest justification.
-9. Append completion or blocked-state entries to `08_review/README.md` and the
+9. Ask up to 5 non-trivial post-write calibration questions whose answers could
+   change the review severity, verdict, priority fix list, or revision plan.
+   Record them in `08_review/审稿意见.md`.
+10. Apply any needed Step 8 revisions before logging or committing.
+11. Append completion or blocked-state entries to `08_review/README.md` and the
     root `README.md`, then commit and push according to the git protocol in
     `commands/phd.md`.
 
@@ -99,6 +103,8 @@ Use this structure:
 ## Suggested Verdict
 
 ## Priority Fix List
+
+## Post-Write Calibration Questions
 ```
 
 Be specific. Reference paper sections, figures, tables, claims, and evidence
@@ -112,8 +118,9 @@ Do not edit `07_paper_latex/` in this step. The output is criticism only.
 
 ## Stop Gate
 
-Stop after `08_review/审稿意见.md` is written, the README logs are updated, and
-commit/push has been attempted. Summarize:
+Stop after `08_review/审稿意见.md` is written, the post-write checkpoint is
+handled, the README logs are updated, and commit/push has been attempted.
+Summarize:
 
 - suggested verdict
 - top 3-5 blocking issues

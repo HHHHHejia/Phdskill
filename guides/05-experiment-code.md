@@ -53,7 +53,7 @@ scratch.
 2. Choose the smallest implementation stack that satisfies the experiment plan
    and user constraints.
 3. Before writing code or `05_experiment_code/implementation.md`, ask the user
-   up to 10 non-trivial, decision-oriented questions to clarify implementation
+   up to 5 non-trivial, decision-oriented questions to clarify implementation
    stack, runtime constraints, logging needs, and run storage expectations. Ask
    only questions whose answers could change the code architecture,
    dependencies, run-storage contract, validation plan, or next action.
@@ -88,7 +88,12 @@ scratch.
    smoke tests with tiny fixtures.
 12. Record what was implemented, how to run it, and what checks passed in
    `05_experiment_code/implementation.md`.
-13. Append completion or blocked-state entries to `05_experiment_code/README.md`
+13. Ask up to 5 non-trivial post-write calibration questions whose answers
+    could change implementation gaps, run commands, validation status,
+    reproducibility notes, or Step 6 readiness. Record them in
+    `05_experiment_code/implementation.md`.
+14. Apply any needed Step 5 revisions before logging or committing.
+15. Append completion or blocked-state entries to `05_experiment_code/README.md`
     and the root `README.md`, then commit and push according to the git protocol
     in `commands/phd.md`.
 
@@ -128,6 +133,8 @@ Use this structure:
 ## Known Gaps Or Blockers
 
 ## Step 6 Analysis Handoff
+
+## Post-Write Calibration Questions
 ```
 
 Do not create any other formal Markdown report for this step. Code files,
@@ -149,7 +156,8 @@ on full experiment execution.
 
 Stop after the code tree is created, the implementation is written, and cheap
 checks have been run or explicitly skipped with a reason, the README logs are
-updated, and commit/push has been attempted. Summarize:
+updated, the post-write checkpoint is handled, and commit/push has been
+attempted. Summarize:
 
 - where the experiment code directory is
 - which components were implemented

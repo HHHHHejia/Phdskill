@@ -73,14 +73,18 @@ with the normal Step 0 actions.
 7. Create a minimal `.gitignore` that protects secrets and large/generated
    artifacts while allowing git to track code, Markdown, configs, scripts,
    manifests, metadata, and small reproducibility artifacts.
-8. Before writing `00_project_setup.md`, ask the user up to 10 non-trivial,
+8. Before writing `00_project_setup.md`, ask the user up to 5 non-trivial,
    decision-oriented questions to clarify setup requirements. Ask only
    questions whose answers could change the repository location, project scope,
    constraints, or next action.
 9. Create `00_project_setup.md`.
-10. Append setup-complete entries to the root README and each folder README
+10. Ask up to 5 non-trivial post-write calibration questions whose answers
+    could change the setup record, repository path, log scaffold, commit scope,
+    or Step 1 readiness. Record them in `00_project_setup.md`.
+11. Apply any needed setup revisions inside the Step 0 contract.
+12. Append setup-complete entries to the root README and each folder README
     that now has an initialized status.
-11. Commit the setup files in the `research_project/` git repo and push to the
+13. Commit the setup files in the `research_project/` git repo and push to the
     configured upstream when available. If push is unavailable, record
     `push pending` in the README logs.
 
@@ -108,6 +112,8 @@ Use this structure:
 ## Current Status
 
 ## Next Step
+
+## Post-Write Calibration Questions
 ```
 
 The raw idea and constraints should live in `00_project_setup.md`; do not split
@@ -116,6 +122,7 @@ them into separate stage files unless the user explicitly asks.
 ## Stop Gate
 
 Stop after the repository and folder structure exist, `00_project_setup.md` is
-written, the README logs are updated, the setup commit has been created and push
-has been attempted. Tell the user where `research_project/` is, the commit/push
-status, and that the next step is `01_idea`.
+written, the post-write checkpoint is handled, the README logs are updated, the
+setup commit has been created and push has been attempted. Tell the user where
+`research_project/` is, the commit/push status, and that the next step is
+`01_idea`.

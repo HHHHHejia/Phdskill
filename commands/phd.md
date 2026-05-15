@@ -48,21 +48,31 @@ files, PDFs, and LaTeX logs may live under their designated artifact folders.
 Required append-only `README.md` continuity logs are also artifacts and do not
 count as formal stage Markdown outputs.
 
-One human-in-the-loop pre-write checkpoint is required for every formal stage
-Markdown file:
+Two human-in-the-loop checkpoints are used for every formal stage Markdown file:
 
-- Before creating or finalizing the stage Markdown file, ask the user up to 10
+- Before creating or finalizing the stage Markdown file, ask the user up to 5
   non-trivial, decision-oriented questions to clarify requirements,
-  assumptions, constraints, and success criteria. Ask fewer than 10 when fewer
-  than 10 meaningful uncertainties remain. Do not ask filler questions just to
+  assumptions, constraints, and success criteria. Ask fewer than 5 when fewer
+  than 5 meaningful uncertainties remain. Do not ask filler questions just to
   reach a quota. If no non-trivial uncertainty remains, record that no pre-write
   questions were needed and continue.
 - Record those questions and answers in the stage Markdown under
   `Human Pre-Write Clarifications`.
+- After the stage Markdown and any allowed LaTeX/artifact outputs are drafted,
+  ask the user up to 5 non-trivial calibration questions whose answers could
+  change the final stage output, claim strength, next action, or approval state.
+  Ask fewer than 5 when fewer meaningful calibration issues remain. If no
+  non-trivial post-write uncertainty remains, record that no post-write
+  questions were needed.
+- Record those post-write questions and answers in the stage Markdown under
+  `Post-Write Calibration Questions`.
+- If post-write answers require revisions within the current stage contract,
+  update the stage output and allowed side effects before updating README logs,
+  committing, or moving on.
 - Do not advance to the next step until the user has had a chance to respond.
 
-Ask pre-write checkpoint questions one at a time. When the environment provides
-a user-question tool such as Codex's "Ask User Question" /
+Ask checkpoint questions one at a time. When the environment provides a
+user-question tool such as Codex's "Ask User Question" /
 `request_user_input`, use that tool for each checkpoint question, with one
 question per tool call, and wait for the user's answer before asking the next
 question. Do not dump all questions into one assistant message, one Markdown
@@ -194,6 +204,7 @@ their manifests, metadata, checksums, and README log references instead.
 - Stop for explicit user approval before finalizing the refined direction,
   running experiments, accepting paper claims, or submitting.
 
-For the required human pre-write checkpoints, ask up to 10 non-trivial
-questions, one at a time using the user-question protocol above. For any other
-ad-hoc clarification, keep questions concise and decision-oriented.
+For required human checkpoints, ask up to 5 non-trivial pre-write questions and
+up to 5 non-trivial post-write questions, one at a time using the user-question
+protocol above. For any other ad-hoc clarification, keep questions concise and
+decision-oriented.
