@@ -49,8 +49,11 @@ figures, tables, build status, and unresolved paper TODOs.
 
 1. Create or update the LaTeX project structure under `07_paper_latex/`.
 2. Before writing `07_paper_latex/writing.md` or polishing the final LaTeX
-   draft, ask the user exactly 10 decision-oriented questions to clarify target
-   venue, tone, claim strength, narrative emphasis, and formatting needs.
+   draft, ask the user up to 10 non-trivial, decision-oriented questions to
+   clarify target venue, tone, claim strength, narrative emphasis, and
+   formatting needs. Ask only questions whose answers could change structure,
+   claim strength, venue formatting, figure/table handling, writing style, or
+   next action.
 3. Create or update the required paper entrypoint:
    - `07_paper_latex/main.tex`
 4. Make `main.tex` import section modules with `\input{...}` rather than
@@ -69,13 +72,9 @@ figures, tables, build status, and unresolved paper TODOs.
    the missing toolchain in `writing.md`.
 11. Fix obvious LaTeX errors, missing includes, broken references, and undefined
    citations when the fix is evidence-preserving.
-12. After writing `07_paper_latex/writing.md` and polishing the LaTeX paper,
-    add exactly 10 post-write calibration questions to
-    `07_paper_latex/writing.md`.
-13. Append completion or blocked-state entries to `07_paper_latex/README.md`
+12. Append completion or blocked-state entries to `07_paper_latex/README.md`
     and the root `README.md`, then commit and push according to the git protocol
     in `commands/phd.md`.
-14. Ask the user those exact 10 calibration questions before moving to Step 8.
 
 ## Four-Pass Writing Protocol
 
@@ -143,8 +142,6 @@ Use this structure:
 ## Remaining TODOs
 
 ## Step 8 Review Handoff
-
-## Post-Write Calibration Questions
 ```
 
 Do not create any other formal Markdown report for this step. LaTeX source
@@ -192,7 +189,7 @@ citations, or claims that need user approval.
 
 Stop after the LaTeX paper is polished and `07_paper_latex/writing.md` is
 written, the README logs are updated, and commit/push has been attempted, then
-ask the 10 post-write calibration questions. Summarize:
+summarize:
 
 - the paper structure
 - which LaTeX files were created or updated

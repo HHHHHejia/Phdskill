@@ -53,8 +53,10 @@ scratch.
 2. Choose the smallest implementation stack that satisfies the experiment plan
    and user constraints.
 3. Before writing code or `05_experiment_code/implementation.md`, ask the user
-   exactly 10 decision-oriented questions to clarify implementation stack,
-   runtime constraints, logging needs, and run storage expectations.
+   up to 10 non-trivial, decision-oriented questions to clarify implementation
+   stack, runtime constraints, logging needs, and run storage expectations. Ask
+   only questions whose answers could change the code architecture,
+   dependencies, run-storage contract, validation plan, or next action.
 4. Scaffold a runnable code tree with dependency files, source code, configs,
    scripts, tests, and concise usage notes in `implementation.md` or another
    clearly named artifact if needed. Preserve `05_experiment_code/README.md` as
@@ -86,13 +88,9 @@ scratch.
    smoke tests with tiny fixtures.
 12. Record what was implemented, how to run it, and what checks passed in
    `05_experiment_code/implementation.md`.
-13. After writing `05_experiment_code/implementation.md` and updating
-    `07_paper_latex/experiments.tex`, add exactly 10 post-write calibration
-    questions to `05_experiment_code/implementation.md`.
-14. Append completion or blocked-state entries to `05_experiment_code/README.md`
+13. Append completion or blocked-state entries to `05_experiment_code/README.md`
     and the root `README.md`, then commit and push according to the git protocol
     in `commands/phd.md`.
-15. Ask the user those exact 10 calibration questions before moving to Step 6.
 
 Do not silently change datasets, baselines, metrics, hypotheses, or budget. If
 the approved plan cannot be implemented as written, document the blocker in
@@ -130,8 +128,6 @@ Use this structure:
 ## Known Gaps Or Blockers
 
 ## Step 6 Analysis Handoff
-
-## Post-Write Calibration Questions
 ```
 
 Do not create any other formal Markdown report for this step. Code files,
@@ -153,8 +149,7 @@ on full experiment execution.
 
 Stop after the code tree is created, the implementation is written, and cheap
 checks have been run or explicitly skipped with a reason, the README logs are
-updated, and commit/push has been attempted, then ask the 10 post-write
-calibration questions. Summarize:
+updated, and commit/push has been attempted. Summarize:
 
 - where the experiment code directory is
 - which components were implemented

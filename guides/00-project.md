@@ -38,7 +38,7 @@ Ask the user for enough intent to begin:
 - any critical constraints such as venue, deadline, budget, data/privacy, or
   collaboration requirements
 
-This preflight is separate from the required 10 Step 0 setup questions. After
+This preflight is separate from the required Step 0 pre-write questions. After
 the user provides a rough idea or explicitly asks for a blank scaffold, continue
 with the normal Step 0 actions.
 
@@ -73,16 +73,16 @@ with the normal Step 0 actions.
 7. Create a minimal `.gitignore` that protects secrets and large/generated
    artifacts while allowing git to track code, Markdown, configs, scripts,
    manifests, metadata, and small reproducibility artifacts.
-8. Before writing `00_project_setup.md`, ask the user exactly 10
-   decision-oriented questions to clarify setup requirements.
-9. Create `00_project_setup.md`, including exactly 10 post-write calibration
-   questions in its final section.
+8. Before writing `00_project_setup.md`, ask the user up to 10 non-trivial,
+   decision-oriented questions to clarify setup requirements. Ask only
+   questions whose answers could change the repository location, project scope,
+   constraints, or next action.
+9. Create `00_project_setup.md`.
 10. Append setup-complete entries to the root README and each folder README
     that now has an initialized status.
 11. Commit the setup files in the `research_project/` git repo and push to the
     configured upstream when available. If push is unavailable, record
     `push pending` in the README logs.
-12. Ask the user those exact 10 calibration questions before moving to Step 1.
 
 ## Output
 
@@ -108,8 +108,6 @@ Use this structure:
 ## Current Status
 
 ## Next Step
-
-## Post-Write Calibration Questions
 ```
 
 The raw idea and constraints should live in `00_project_setup.md`; do not split
@@ -119,6 +117,5 @@ them into separate stage files unless the user explicitly asks.
 
 Stop after the repository and folder structure exist, `00_project_setup.md` is
 written, the README logs are updated, the setup commit has been created and push
-has been attempted, and the 10 post-write calibration questions have been asked.
-Tell the user where `research_project/` is, the commit/push status, and that the
-next step is `01_idea`.
+has been attempted. Tell the user where `research_project/` is, the commit/push
+status, and that the next step is `01_idea`.

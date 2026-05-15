@@ -28,7 +28,7 @@ before creating any directory, git repository, README, Markdown file, or log.
 The command name itself (`Phd`, `$phd`, or `/phd`) is not research input. Ask the
 user for the rough research idea and whether they want to create
 `research_project/` in the current location. This preflight does not count as
-the formal 10-question Step 0 checkpoint. Continue Step 0 only after the user
+the formal Step 0 pre-write checkpoint. Continue Step 0 only after the user
 provides enough intent to create or resume a project.
 
 After Step 0, each step edits only its corresponding output folder plus any
@@ -48,28 +48,29 @@ files, PDFs, and LaTeX logs may live under their designated artifact folders.
 Required append-only `README.md` continuity logs are also artifacts and do not
 count as formal stage Markdown outputs.
 
-Human-in-the-loop checkpoints are required for every formal stage Markdown file:
+One human-in-the-loop pre-write checkpoint is required for every formal stage
+Markdown file:
 
-- Before creating or finalizing the stage Markdown file, ask the user exactly 10
-  decision-oriented questions to clarify requirements, assumptions, constraints,
-  and success criteria. Wait for the user's answers when possible.
+- Before creating or finalizing the stage Markdown file, ask the user up to 10
+  non-trivial, decision-oriented questions to clarify requirements,
+  assumptions, constraints, and success criteria. Ask fewer than 10 when fewer
+  than 10 meaningful uncertainties remain. Do not ask filler questions just to
+  reach a quota. If no non-trivial uncertainty remains, record that no pre-write
+  questions were needed and continue.
 - Record those questions and answers in the stage Markdown under
   `Human Pre-Write Clarifications`.
-- After the stage Markdown and any allowed LaTeX/artifact outputs are complete,
-  ask the user exactly 10 calibration questions to confirm direction, scope,
-  risks, and next-step readiness.
-- Record those post-write questions, and the user's answers if provided, under
-  `Post-Write Calibration Questions`.
 - Do not advance to the next step until the user has had a chance to respond.
 
-Ask checkpoint questions one at a time. When the environment provides a
-user-question tool such as Codex's "Ask User Question" / `request_user_input`,
-use that tool for each checkpoint question, with one question per tool call, and
-wait for the user's answer before asking the next question. Do not dump all 10
-questions into one assistant message, one Markdown list, or one multi-question
-tool call. Record each question and answer as it arrives. If no user-question
-tool is available, ask exactly one concise question in normal chat and wait
-before continuing.
+Ask pre-write checkpoint questions one at a time. When the environment provides
+a user-question tool such as Codex's "Ask User Question" /
+`request_user_input`, use that tool for each checkpoint question, with one
+question per tool call, and wait for the user's answer before asking the next
+question. Do not dump all questions into one assistant message, one Markdown
+list, or one multi-question tool call. Record each question and answer as it
+arrives. If no user-question tool is available, ask exactly one concise question
+in normal chat and wait before continuing. A non-trivial question is one whose
+answer could change scope, method, data, baselines, metrics, budget, evidence,
+claim strength, writing target, or the next action.
 
 Use progressive disclosure. The skill body is only the routing layer: identify
 the active step, then load only that step's guide and only the helper script you
@@ -193,6 +194,6 @@ their manifests, metadata, checksums, and README log references instead.
 - Stop for explicit user approval before finalizing the refined direction,
   running experiments, accepting paper claims, or submitting.
 
-For the required human checkpoints, ask exactly 10 questions, one at a time
-using the user-question protocol above. For any other ad-hoc clarification, keep
-questions concise and decision-oriented.
+For the required human pre-write checkpoints, ask up to 10 non-trivial
+questions, one at a time using the user-question protocol above. For any other
+ad-hoc clarification, keep questions concise and decision-oriented.

@@ -51,17 +51,15 @@ dataset or baseline decisions, and unresolved experiment-planning blockers.
    data is useful, embed it as fenced JSON inside `experiment_plan.md` rather
    than creating a separate JSON file.
 7. Identify data, compute, privacy, ethics, cost, and reproducibility risks.
-8. Before writing `04_experiment_plan/experiment_plan.md`, ask the user exactly
-   10 decision-oriented questions to clarify datasets, baselines, metrics,
-   ablations, budget, and approval constraints.
+8. Before writing `04_experiment_plan/experiment_plan.md`, ask the user up to 10
+   non-trivial, decision-oriented questions to clarify datasets, baselines,
+   metrics, ablations, budget, and approval constraints. Ask only questions
+   whose answers could change the run matrix, evaluation protocol, cost,
+   privacy constraints, or next action.
 9. State what the user must approve before code or experiments begin.
-10. After writing `04_experiment_plan/experiment_plan.md` and
-    `07_paper_latex/experiments.tex`, add exactly 10 post-write calibration
-    questions to `04_experiment_plan/experiment_plan.md`.
-11. Append completion or blocked-state entries to
+10. Append completion or blocked-state entries to
     `04_experiment_plan/README.md` and the root `README.md`, then commit and
     push according to the git protocol in `commands/phd.md`.
-12. Ask the user those exact 10 calibration questions before moving to Step 5.
 
 ## Output
 
@@ -97,8 +95,6 @@ Use this structure:
 ## Approval Request
 
 ## Method Revision Needed
-
-## Post-Write Calibration Questions
 ```
 
 Do not create any other formal Markdown or JSON files for this step; fold all
@@ -124,10 +120,9 @@ This should be an experimental-setup draft, not a results section. It must:
 
 Stop after `04_experiment_plan/experiment_plan.md` and
 `07_paper_latex/experiments.tex` are written, the README logs are updated,
-commit/push has been attempted, and the 10 post-write calibration questions
-have been asked. Ask the user to approve or modify datasets, baselines, metrics,
-ablations, budget, and any privacy or data-access constraints, and report the
-commit/push status.
+and commit/push has been attempted. Ask the user to approve or modify datasets,
+baselines, metrics, ablations, budget, and any privacy or data-access
+constraints, and report the commit/push status.
 
 Do not move to experiment code or run any experiment until the user approves
 the plan.

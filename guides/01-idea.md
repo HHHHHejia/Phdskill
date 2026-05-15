@@ -47,18 +47,17 @@ starting over.
    progress with `tmux capture-pane -pt <session>` or the log file. After the
    tmux job finishes successfully, read the raw tool outputs in
    `01_idea/tool_outputs/`.
-4. Before writing `01_idea/idea.md`, ask the user exactly 10
+4. Before writing `01_idea/idea.md`, ask the user up to 10 non-trivial,
    decision-oriented questions to clarify the research direction, constraints,
-   and success criteria.
+   and success criteria. Ask only questions whose answers could change the
+   selected direction, evidence needs, scope, feasibility judgment, or next
+   action.
 5. Synthesize the evidence into the single formal output `01_idea/idea.md`.
-6. After writing `01_idea/idea.md` and `07_paper_latex/intro.tex`, add exactly
-   10 post-write calibration questions to `01_idea/idea.md`.
-7. Recommend one next direction if the evidence supports it; otherwise mark the
+6. Recommend one next direction if the evidence supports it; otherwise mark the
    uncertainty directly.
-8. Append completion or blocked-state entries to `01_idea/README.md` and the
+7. Append completion or blocked-state entries to `01_idea/README.md` and the
    root `README.md`, then commit and push according to the git protocol in
    `commands/phd.md`.
-9. Ask the user those exact 10 calibration questions before moving to Step 2.
 
 If tmux is unavailable or the helper cannot start, write the failure note in
 `01_idea/tool_outputs/tool_failure.md` and ask before continuing without Deep
@@ -94,8 +93,6 @@ Use this structure:
 ## Recommended Direction
 
 ## Step 2 Literature Plan
-
-## Post-Write Calibration Questions
 ```
 
 Do not create any other formal Markdown files for this step; fold all sections
@@ -118,6 +115,6 @@ This should be an early introduction draft. It must:
 ## Stop Gate
 
 Stop after `01_idea/idea.md` and `07_paper_latex/intro.tex` are written and the
-README logs are updated, commit/push has been attempted, and the 10 post-write
-calibration questions have been asked. Ask which direction the user wants to
-pursue before building the knowledge base, and report the commit/push status.
+README logs are updated and commit/push has been attempted. Ask which direction
+the user wants to pursue before building the knowledge base, and report the
+commit/push status.

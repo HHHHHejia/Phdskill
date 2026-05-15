@@ -48,8 +48,10 @@ analysis blockers.
 2. Refuse to analyze missing or ambiguous runs as if they were real evidence.
    Mark gaps as `NEEDS_EXPERIMENT` or `NEEDS_VERIFICATION`.
 3. Before writing analysis scripts or `06_analysis/analysis.md`, ask the user
-   exactly 10 decision-oriented questions to clarify analysis priorities,
-   statistical expectations, plotting needs, and claim boundaries.
+   up to 10 non-trivial, decision-oriented questions to clarify analysis
+   priorities, statistical expectations, plotting needs, and claim boundaries.
+   Ask only questions whose answers could change metric computation, statistical
+   treatment, figure/table design, claim boundaries, or next action.
 4. Write analysis scripts in `06_analysis/scripts/`.
 5. Write plotting scripts in `06_analysis/plots/` or another clearly named
    scripts folder under `06_analysis/`.
@@ -63,12 +65,9 @@ analysis blockers.
    from weak, failed, or inconclusive evidence.
 11. Produce publication-ready figure/table artifacts when possible, with source
    data paths recorded in `analysis.md`.
-12. After writing `06_analysis/analysis.md` and `07_paper_latex/results.tex`,
-    add exactly 10 post-write calibration questions to `06_analysis/analysis.md`.
-13. Append completion or blocked-state entries to `06_analysis/README.md` and
+12. Append completion or blocked-state entries to `06_analysis/README.md` and
     the root `README.md`, then commit and push according to the git protocol in
     `commands/phd.md`.
-14. Ask the user those exact 10 calibration questions before moving to Step 7.
 
 ## Output
 
@@ -102,8 +101,6 @@ Use this structure:
 ## Limitations
 
 ## Step 7 Writing Handoff
-
-## Post-Write Calibration Questions
 ```
 
 Do not create any other formal Markdown report for this step. Analysis scripts,
@@ -130,8 +127,8 @@ outputs. It must:
 ## Stop Gate
 
 Stop after `06_analysis/analysis.md` and `07_paper_latex/results.tex` are
-written, the README logs are updated, commit/push has been attempted, and the
-10 post-write calibration questions have been asked. Summarize:
+written, the README logs are updated, and commit/push has been attempted.
+Summarize:
 
 - which runs were analyzed
 - where processed results, figures, tables, and logs were stored

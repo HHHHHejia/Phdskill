@@ -59,9 +59,6 @@ for (const file of guideFiles) {
   if (!text.includes("## Human Pre-Write Clarifications")) {
     fail(`${file} missing human pre-write checkpoint`);
   }
-  if (!text.includes("## Post-Write Calibration Questions")) {
-    fail(`${file} missing post-write calibration checkpoint`);
-  }
 }
 
 const command = read("commands/phd.md");
